@@ -18,7 +18,7 @@ if(!is_dir($_GET['path'])){
 	echo "部署目录不存在";
 	exit();
 }
-echo "string";
+echo "string123<br>";
 $cmd="cd ".$_GET['path']." && git checkout . && git pull --force";
 echo $cmd;
 exec($cmd,$res);
