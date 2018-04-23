@@ -6,7 +6,7 @@ if(!$_SERVER['HTTP_X_HUB_SIGNATURE']){
 	exit();
 }
 
-$token="756605bc1c0a3b29391c3a4e93c7e147";
+$token=include "token.php";
 $data=file_get_contents('php://input');
 list($algo, $hash) = explode('=', $_SERVER['HTTP_X_HUB_SIGNATURE'], 2) + array('', '');
 if($hash!==hash_hmac($algo, $data, $token)){
@@ -18,7 +18,6 @@ if(!is_dir($_GET['path'])){
 	echo "部署目录不存在";
 	exit();
 }
-echo "string123<br>";
 $cmd="cd ".$_GET['path']." && git checkout . && git pull --force";
 echo $cmd;
 exec($cmd,$res);
