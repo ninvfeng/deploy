@@ -14,11 +14,11 @@ if($hash!==hash_hmac($algo, $data, $token)){
 	exit();
 }
 
-if(!is_dir($_GET['dir'])){
+if(!is_dir($_GET['path'])){
 	echo "部署目录不存在";
 	exit();
 }
-
-$cmd="cd ".$_GET['dir']." && git checkout . && git pull --force";
+$cmd="cd ".$_GET['path']." && git checkout . && git pull --force";
+echo $cmd;
 exec($cmd,$res);
 print_r($res);
