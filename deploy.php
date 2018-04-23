@@ -24,6 +24,5 @@ if(!is_dir($_GET['path'])){
 
 //执行更新命令
 $cmd="cd ".$_GET['path']." && git checkout . && git pull --force";
-echo $cmd;
 exec($cmd,$res);
 print_r($res);
