@@ -1,7 +1,14 @@
 <?php
 //php 部署脚本
 if($_GET['token']=='ninvfeng'){
-	exec("cd /data/jiyu && git checkout . && git pull --force");
+	$dir=$_GET['path'];
+	if(is_dir($dir)){
+		$cmd="cd ".$dir."&& git checkout . && git pull --force";
+		exec($cmd,$res);
+		print_r($res);
+	}else{
+		echo "dir not exist";
+	}
 }else{
-	echo "Token Error";
+	echo "token error";
 }
