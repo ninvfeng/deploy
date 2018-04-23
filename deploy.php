@@ -5,6 +5,7 @@ if($_GET['token']=='ninvfeng'){
 	if(is_dir($dir)){
 		$cmd="cd ".$dir."&& git checkout . && git pull --force";
 		echo $cmd;
+		echo "<br>";
 		exec($cmd,$res);
 		print_r($res);
 	}else{
